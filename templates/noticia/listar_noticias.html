@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <title>Listado de Noticias</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fondoNoticia.css' %}">
+</head>
+<body>
+    
+
+    <nav class="menu">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/barra_navegacion.css' %}">
+    <div class="animation start-home"></div>
+        <a class="item" href="{% url 'Home' %}">Home</a>
+        <a class="item" href="{% url 'crear_noticia' %}">Nueva Noticia</a>
+    </nav>
+
+    <h1>Noticias</h1>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/estilo_lista.css' %}">
+
+    <ul>
+        {% for noticia in noticias %}
+            <li>
+                <h2>{{ noticia.Titulo }}</h2>
+                <p><strong> Autor : </strong> {{ noticia.autor }}</p>
+                <p>{{ noticia.Parrafo }}</p>
+                <p><strong>Fecha:</strong> {{ noticia.Fecha_Publicacion }}</p>
+                {% if noticia.imagen %}
+                    <img src="{{ noticia.imagen.url }}" alt="Imagen de la noticia" width="200">
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>No hay noticias registradas por ahora.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/fondoelimin.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilo_lista.css' %}">
+<h1>Mis Noticias para Eliminar</h1>
+<ul>
+    {% for noticia in object_list %}
+        <li>
+            <h3>{{ noticia.Titulo }}</h3>
+            <a href="{% url 'delete' noticia.pk %}">Eliminar</a>
+        </li>
+    {% empty %}
+        <li>No tienes noticias para eliminar.</li>
+    {% endfor %}
+</ul>

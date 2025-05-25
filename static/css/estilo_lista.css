@@ -1,0 +1,80 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 30px 15px;
+    color: #333333;
+}
+
+/* Contenedor centrado para las noticias */
+ul {
+    list-style: none;
+    padding: 0;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Tarjeta de noticia */
+ul li {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    padding: 25px 30px;
+    margin-bottom: 25px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+ul li:hover {
+    box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+}
+
+/* Título de noticia */
+ul li h2 {
+    margin-top: 0;
+    color: #1a1a1a; /* Más oscuro para mejor contraste */
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin-bottom: 12px;
+}
+
+/* Texto del párrafo */
+ul li p {
+    color: #4a4a4a; /* Gris oscuro para buena legibilidad */
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Fecha y autor */
+ul li small {
+    color: #757575; /* Gris medio, sutil */
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* Imagen */
+ul li img {
+    display: block;
+    margin-top: 15px;
+    max-width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+ul li img:hover {
+    transform: scale(1.05);
+}
+
+h1 {
+    color: #222222 !important;
+    font-weight: 700 !important;
+    font-size: 3rem !important;
+    margin-bottom: 30px !important;
+    text-align: center !important;
+    letter-spacing: 1px !important;
+}

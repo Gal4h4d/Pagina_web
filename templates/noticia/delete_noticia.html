@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fondoelimin.css' %}">
+    <title>Eliminar Noticia</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Eliminar Noticia</h1>
+        <form method="post">
+            {% csrf_token %}
+            <h2>¿Estás seguro de eliminar esta noticia?</h2>
+            <button type="submit">Confirmar</button>
+        </form>
+        <a href="{% url 'listar_noticias' %}">Cancelar y volver</a>
+    </div>
+</body>
+</html>

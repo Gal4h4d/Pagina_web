@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/barra_navegacion.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fondo.css' %}">
+
+</head>
+<body>
+
+<nav class="menu">
+    <div class="animation start-home"></div>
+    {% if user.is_authenticated %}
+        <a class="item" href="{% url 'crear_noticia' %}">Crear Noticia</a>
+        <a class="item" href="{% url 'listar_noticias' %}">Noticias</a>
+        <a class="item" href="{% url 'editar_mis_noticias' %}">Editar Noticias</a>
+        <a class="item" href="{% url 'eliminar_mis_noticias' %}">Eliminar Noticias</a>
+        <a class="item no-hover">Hola, {{ user.username }}</a>
+        <form action="{% url 'logout' %}" method="post" class="logout-form">
+            {% csrf_token %}
+            <button type="submit">Cerrar sesión</button>
+        </form>
+    {% else %}
+        <a class="item" href="{% url 'login' %}">Iniciar sesión</a>
+        <a class="item" href="{% url 'registro' %}">Registrarse</a>
+    {% endif %}
+</nav>
+
+<div class="container">
+    <link rel="stylesheet" href="{% static 'css/titulo.css' %}">
+    <header class="encabezado">
+    <h1 class="titulo-principal">El Diario Pamplonés</h1>
+</header>
+    <section class="listado-noticias">
+        {% if noticias %}
+            <ul>
+                {% for noticia in noticias %}
+                    <li>
+                        <h2>{{ noticia.Titulo }}</h2>
+                        <p>{{ noticia.Parrafo|truncatewords:30 }}</p>
+                        <small>Publicado: {{ noticia.Fecha_Publicacion }}</small>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No hay noticias para mostrar.</p>
+        {% endif %}
+    </section>
+</div>
+
+
+
+<script src="{% static 'js/tiempo.js' %}"></script>
+
+</body>
+</html>
