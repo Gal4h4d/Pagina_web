@@ -1,30 +1,39 @@
 from .base import *
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Ruta al .env (donde está manage.py)
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+load_dotenv(BASE_DIR / '.env')
 
 DEBUG = False
-ALLOWED_HOSTS = ['*']  # Cambia por tu dominio real cuando tengas uno
+ALLOWED_HOSTS = ['*']  # Cambiar por dominio real en producción
 
-# Configuración base de datos (SQLite, aunque en producción lo ideal es PostgreSQL)
+SECRET_KEY = os.getenv('SECRET_KEY')
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / get_secret('DB_NAME'),
+        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME': os.getenv('DB_NAME', BASE_DIR / 'db.sqlite3'),
+        'USER': os.getenv('DB_USER', ''),
+        'PASSWORD': os.getenv('DB_PASSWORD', ''),
+        'HOST': os.getenv('DB_HOST', ''),
+        'PORT': os.getenv('DB_PORT', ''),
     }
 }
 
-# Archivos estáticos
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # carpeta donde collectstatic guarda archivos
 
-# Archivos de media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# Middleware: añade WhiteNoise para servir estáticos sin necesidad de nginx
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Aquí debe ir WhiteNoise
-    # el resto de tus middlewares del base.py ...
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # WhiteNoise para servir estáticos
+    *MIDDLEWARE,  # Agrega el resto de middlewares definidos en base.py
 ]
 
-# Configura WhiteNoise para mejorar el rendimiento de archivos estáticos
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
