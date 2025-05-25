@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+
+    /* Fondo con imagen */
+    background: url("../img/fondo.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #fff; /* para buen contraste si es clara u oscura */
+}
+
+/* Capa de oscurecimiento (opcional) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* 0.5 = 50% oscuridad */
+    z-index: -1;
+}

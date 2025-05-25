@@ -1,0 +1,39 @@
+.encabezado {
+    text-align: center;
+    margin-top: 40px;
+}
+
+
+
+.container {
+    background: rgba(255, 255, 255, 0.2);  /* fondo translúcido */
+    backdrop-filter: blur(8px);            /* efecto vidrio */
+    border-radius: 12px;
+    padding: 10px 30px 15px 30px;          /* menos padding arriba y abajo */
+    max-width: 600px;
+    margin: 10px auto 0;                   /* casi a ras del top */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.titulo-principal {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: #fefefe;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+    letter-spacing: 1px;
+    margin: 0 auto 5px;                    /* casi sin margen inferior */
+    animation: aparecer 1s ease-in-out;               /* menos espacio abajo */
+}
+
+
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

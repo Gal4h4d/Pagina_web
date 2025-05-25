@@ -1,0 +1,74 @@
+nav.menu {
+    background: rgba(193, 188, 182, 0.378); /* color vino con 40% de opacidad */
+    backdrop-filter: blur(8px);       /* efecto de vidrio desenfocado */
+    -webkit-backdrop-filter: blur(8px); /* para Safari */
+    border-radius: 12px;
+    padding: 10px 20px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* opcional: borde suave */
+}
+
+
+nav.menu .item {
+    font-size: 14px;
+    color: #ecf0f1;
+    text-decoration: none;
+    padding: 15px 20px;
+    position: relative;
+    z-index: 1;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+nav.menu .item:hover:not(.no-hover) {
+    background-color: #ef2a0c6d;
+    border-radius: 8px;
+}
+
+nav.menu .logout-form button {
+    background-color: #e74c3c;
+    border: none;
+    padding: 8px 16px;
+    margin-left: 15px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+nav.menu .logout-form button:hover {
+    background-color: #c0392b;
+}
+
+
+
+@media (max-width: 768px) {
+    nav.menu {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    nav.menu .item,
+    nav.menu .logout-form button {
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    .container {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+
+    .titulo-principal {
+        font-size: 32px;
+    }
+}
