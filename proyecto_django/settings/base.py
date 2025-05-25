@@ -77,6 +77,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'proyecto_django.wsgi.application'
 
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 
 
