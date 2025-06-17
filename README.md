@@ -1,3 +1,6 @@
+> [!NOTE]
+> Usa integracion con Render para construir la pagina y lanzar la pagina.
+
 # Proyecto Página Web - Django
 
 Este es un proyecto de ejemplo desarrollado con Django. Su objetivo es ser una base para una página web donde se pueden gestionar noticias u otros contenidos estáticos y dinámicos.
