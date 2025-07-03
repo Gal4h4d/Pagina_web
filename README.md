@@ -24,7 +24,7 @@ Este es un proyecto de ejemplo desarrollado con Django. Su objetivo es ser una b
 1. Clona este repositorio:
 
 ```bash
-git clone https://github.com/tu_usuario/proyecto_django.git
+git clone https://github.com/Gal4h4d/Pagina_web.git
 cd proyecto_django
 ```
 Crea un entorno virtual (opcional pero recomendado):
